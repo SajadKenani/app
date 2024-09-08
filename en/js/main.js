@@ -720,3 +720,8 @@ function openpage(link) {
 
   window.open(link , '_blank');
 };
+
+function openPage(url) {
+  window.location.href = url;
+}
+
