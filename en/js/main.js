@@ -725,3 +725,7 @@ function openPage(url) {
   window.location.href = url;
 }
 
+
+document.getElementById("goButton").addEventListener("click", () => {
+  window.location.href = ("https://meemapps.github.io/meem")
+})
