@@ -411,12 +411,10 @@
                                 class="art-input"
                                 type="text"
                                 placeholder="الاسم الكامل"
-                                required=""
+                                required
                               />
                               <!-- label -->
-                              <label for="name"
-                                ><i class="fas fa-user"></i
-                              ></label>
+                              <label for="name"><i class="fas fa-user"></i></label>
                             </div>
                             <!-- form field end -->
                             <!-- form field -->
@@ -428,12 +426,10 @@
                                 class="art-input"
                                 type="email"
                                 placeholder="البريد الالكتروني"
-                                required=""
+                                required
                               />
                               <!-- label -->
-                              <label for="email"
-                                ><i class="fas fa-at"></i
-                              ></label>
+                              <label for="email"><i class="fas fa-at"></i></label>
                             </div>
                             <!-- form field end -->
                             <!-- form field -->
@@ -444,30 +440,28 @@
                                 name="text"
                                 class="art-input"
                                 placeholder="الرسالة"
-                                required=""
+                                required
                               ></textarea>
                               <!-- label -->
-                              <label for="message"
-                                ><i class="far fa-envelope"></i
-                              ></label>
+                              <label for="message"><i class="far fa-envelope"></i></label>
                             </div>
                             <!-- form field end -->
                             <!-- button -->
                             <div class="art-submit-frame">
                               <button
+                                id="submitBtn"
                                 class="art-btn art-btn-md art-submit"
-                                type="submit" disabled
+                                type="submit"
                               >
                                 <span>ارسال الرسالة</span>
                               </button>
                               <!-- success -->
-                              <div class="art-success">
+                              <div class="art-success" style="display: none;">
                                 Success <i class="fas fa-check"></i>
                               </div>
                             </div>
                           </form>
                           <!-- contact form end -->
-                        </div>
                         <!-- contact form frame end -->
                       </div>
                       <!-- col end -->
@@ -692,6 +686,45 @@
     <script src="js/plugins/fancybox.min.js"></script>
     <!-- swup js -->
     <script src="js/plugins/swup.min.js"></script>
+
+    <script>
+      document.getElementById('form').addEventListener('submit', async (e) => {
+        e.preventDefault(); // Prevent form from refreshing the page
+    
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+    
+        // Validate inputs
+        if (!name || !email || !message) {
+          alert('Please fill out all fields');
+          return;
+        }
+    
+        // POST request
+        try {
+          const response = await fetch('https://golang-proxy-server-production-3252.up.railway.app/submit', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ name, email, message }),
+          });
+    
+          if (response.ok) {
+            document.querySelector('.art-success').style.display = 'block';
+            alert('Message sent successfully!');
+            // Reset form
+            document.getElementById('form').reset();
+          } else {
+            alert('Failed to send message. Please try again.');
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          alert('An error occurred while sending the message.');
+        }
+      });
+    </script>
 
     <!-- main js -->
     <script src="js/main.js"></script>
