@@ -914,6 +914,46 @@
     <script src="js/plugins/smooth-scrollbar.min.js"></script>
     <!-- overscroll js -->
     <script src="js/plugins/overscroll.min.js"></script>
+
+    <script>
+      document.getElementById('form').addEventListener('submit', async (e) => {
+        e.preventDefault(); // Prevent form from refreshing the page
+    
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+    
+        // Validate inputs
+        if (!name || !email || !message) {
+          alert('Please fill out all fields');
+          return;
+        }
+    
+        // POST request
+        try {
+          const response = await fetch('https://golang-proxy-server-production-3252.up.railway.app/submit', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ name, email, message }),
+          });
+    
+          if (response.ok) {
+            document.querySelector('.art-success').style.display = 'block';
+            alert('Message sent successfully!');
+            // Reset form
+            document.getElementById('form').reset();
+          } else {
+            alert('Failed to send message. Please try again.');
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          alert('An error occurred while sending the message.');
+        }
+      });
+    </script>
+
     <!-- typing js -->
     <script src="js/plugins/typing.min.js"></script>
     <!-- isotope js -->
