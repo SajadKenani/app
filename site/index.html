@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="css/plugins/fancybox.min.css" />
     <!-- main css -->
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/home.css" />
     <script
       src="https://kit.fontawesome.com/436e6d7051.js"
       crossorigin="anonymous"
@@ -290,7 +291,7 @@
             <!-- top background end -->
 
             <!-- swup container -->
-            <div class="transition-fade" id="swup">
+            <div class="transition-fade art-home-page" id="swup">
               <!-- scroll frame -->
               <div id="scrollbar" class="art-scroll-frame">
                 <!-- container -->
@@ -312,27 +313,56 @@
                         <div class="art-banner-overlay">
                           <!-- main title -->
                           <div class="art-banner-title">
-                            <!-- title -->
-                            <h1 class="mb-15">
-                              Take Tour Of My <br />Web Journey!
-                            </h1>
-                            <!-- suptitle -->
-                            <div class="art-lg-text art-code mb-25">
-                              &lt;<i>code</i>&gt; I
-                              <span
-                                class="txt-rotate"
-                                data-period="2000"
-                                data-rotate='[ "build full-stack web and mobile applications.", "work with React, React Native, Go, and PostgreSQL.", "develop APIs and end-to-end features.", "am a Full-Stack Engineer!" ]'
-                              ></span
-                              >&lt;/<i>code</i>&gt;
+                            <div class="art-home-copy">
+                              <div class="art-home-eyebrow">
+                                <span class="art-home-status" aria-hidden="true"></span>
+                                Full-stack engineer · Baghdad, Iraq
+                              </div>
+                              <h1 class="mb-15">
+                                I build digital products from concept to launch.
+                              </h1>
+                              <div class="art-lg-text art-code mb-25">
+                                &lt;<i>code</i>&gt; I
+                                <span
+                                  class="txt-rotate"
+                                  data-period="2000"
+                                  data-rotate='[ "build full-stack web and mobile applications.", "work with React, React Native, Go, and PostgreSQL.", "develop APIs and end-to-end features.", "am a Full-Stack Engineer!" ]'
+                                ></span
+                                >&lt;/<i>code</i>&gt;
+                              </div>
+                              <div class="art-buttons-frame">
+                                <a href="portfolio.html" class="art-btn art-btn-md">
+                                  <span>Explore my work</span>
+                                  <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                                </a>
+                                <a href="history.html" class="art-home-secondary-link">
+                                  View experience
+                                  <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                </a>
+                              </div>
                             </div>
-                            <div class="art-buttons-frame">
-                              <!-- button -->
-                              <a
-                                href="portfolio.html"
-                                class="art-btn art-btn-md"
-                                ><span>Explore now</span></a
-                              >
+                            <div class="art-home-visual" aria-hidden="true">
+                              <div class="art-home-code-window">
+                                <div class="art-home-window-bar">
+                                  <span class="art-home-window-dots"><i></i><i></i><i></i></span>
+                                  <span>developer.ts</span>
+                                  <span class="art-home-window-mark">&lt;/&gt;</span>
+                                </div>
+                                <div class="art-home-code-lines">
+                                  <div><span class="art-home-line-number">01</span><span class="art-home-code-muted">const</span> <span class="art-home-code-name">developer</span> = {</div>
+                                  <div><span class="art-home-line-number">02</span>&nbsp;&nbsp;craft: <span class="art-home-code-string">"thoughtful products"</span>,</div>
+                                  <div><span class="art-home-line-number">03</span>&nbsp;&nbsp;focus: <span class="art-home-code-string">"people first"</span>,</div>
+                                  <div><span class="art-home-line-number">04</span>&nbsp;&nbsp;stack: [</div>
+                                  <div><span class="art-home-line-number">05</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="art-home-code-accent">"React"</span>, <span class="art-home-code-accent">"Go"</span>,</div>
+                                  <div><span class="art-home-line-number">06</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="art-home-code-accent">"PostgreSQL"</span></div>
+                                  <div><span class="art-home-line-number">07</span>&nbsp;&nbsp;]</div>
+                                  <div><span class="art-home-line-number">08</span>};</div>
+                                </div>
+                                <div class="art-home-code-footer">
+                                  <span><i></i> Available for select projects</span>
+                                  <span>BUILD · SHIP · REFINE</span>
+                                </div>
+                              </div>
                             </div>
                           </div>
                           <!-- main title end -->
@@ -455,6 +485,7 @@
                       <div class="art-a art-service-icon-box">
                         <!-- service content -->
                         <div class="art-service-ib-content">
+                          <span class="art-home-service-icon" aria-hidden="true"><i class="fas fa-code"></i></span>
                           <!-- title -->
                           <h5 class="mb-15">Front - End Development</h5>
                           <!-- text -->
@@ -482,6 +513,7 @@
                       <div class="art-a art-service-icon-box">
                         <!-- service content -->
                         <div class="art-service-ib-content">
+                          <span class="art-home-service-icon" aria-hidden="true"><i class="fas fa-server"></i></span>
                           <!-- title -->
                           <h5 class="mb-15">Back - End Development</h5>
                           <!-- text -->
@@ -509,6 +541,7 @@
                       <div class="art-a art-service-icon-box">
                         <!-- service content -->
                         <div class="art-service-ib-content">
+                          <span class="art-home-service-icon" aria-hidden="true"><i class="fas fa-layer-group"></i></span>
                           <!-- title -->
                           <h5 class="mb-15">Full - Stack Development</h5>
                           <!-- text -->
@@ -535,6 +568,7 @@
                       <div class="art-a art-service-icon-box">
                         <!-- service content -->
                         <div class="art-service-ib-content">
+                          <span class="art-home-service-icon" aria-hidden="true"><i class="fas fa-mobile-alt"></i></span>
                           <!-- title -->
                           <h5 class="mb-15">Mobile Application Development</h5>
                           <!-- text -->
@@ -561,6 +595,7 @@
                       <div class="art-a art-service-icon-box">
                         <!-- service content -->
                         <div class="art-service-ib-content">
+                          <span class="art-home-service-icon" aria-hidden="true"><i class="fas fa-pen-nib"></i></span>
                           <!-- title -->
                           <h5 class="mb-15">UI UX Design</h5>
                           <!-- text -->

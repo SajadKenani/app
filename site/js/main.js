@@ -307,29 +307,6 @@ $(function () {
     }
   });
 
-  $("#form").submit(function () {
-    $.ajax({
-      type: "POST",
-      url: "mail.php",
-      data: $(this).serialize(),
-    }).done(function () {
-      var tl = anime.timeline({
-        easing: "easeOutExpo",
-      });
-
-      tl.add({
-        targets: ".art-submit",
-        opacity: 0,
-        scale: 0.5,
-      }).add({
-        targets: ".art-success",
-        scale: 1,
-        height: "45px",
-      });
-    });
-    return false;
-  });
-
   // portfolio filter
   $(".art-filter a").on("click", function () {
     $(".art-filter .art-current").removeClass("art-current");
@@ -519,29 +496,6 @@ $(function () {
       damping: 0.05,
       renderByPixel: true,
       continuousScrolling: true,
-    });
-
-    $("#form").submit(function () {
-      $.ajax({
-        type: "POST",
-        url: "mail.php",
-        data: $(this).serialize(),
-      }).done(function () {
-        var tl = anime.timeline({
-          easing: "easeOutExpo",
-        });
-
-        tl.add({
-          targets: ".art-submit",
-          opacity: 0,
-          scale: 0.5,
-        }).add({
-          targets: ".art-success",
-          scale: 1,
-          height: "45px",
-        });
-      });
-      return false;
     });
 
     // Masonry Grid
@@ -760,6 +714,9 @@ const translations = {
       "History": "السيرة المهنية",
       "Contact": "تواصل معي",
       "Portfolio": "معرض الأعمال",
+      "Portfolio · Selected projects": "معرض الأعمال · مشاريع مختارة",
+      "Selected work": "أعمال مختارة",
+      "A collection of products and experiences built with care, from mobile applications to full-stack platforms.": "مجموعة من المنتجات والتجارب التي طُورت بعناية، من تطبيقات الهاتف إلى المنصات المتكاملة.",
       "Accounts": "حساباتي",
       "Linked In": "لينكدإن",
       "Residence:": "الإقامة:",
@@ -773,9 +730,13 @@ const translations = {
       "Download cv": "تنزيل السيرة الذاتية",
       "Take Tour Of My": "اكتشف",
       "Web Journey!": "رحلتي في تطوير الويب!",
+      "Full-stack engineer · Baghdad, Iraq": "مهندس برمجيات متكامل · بغداد، العراق",
+      "I build digital products from concept to launch.": "أبني منتجات رقمية من الفكرة حتى الإطلاق.",
       "code": "برمجة",
       "I": "أنا",
       "Explore now": "اكتشف الآن",
+      "Explore my work": "استكشف أعمالي",
+      "View experience": "عرض الخبرات",
       "Years Experience": "سنوات من الخبرة",
       "Completed Projects": "مشروع مكتمل",
       "Happy Customers": "عميل سعيد",
@@ -857,9 +818,7 @@ const translations = {
       "Email": "البريد الإلكتروني",
       "Message": "الرسالة",
       "Please fill out all fields": "يرجى ملء جميع الحقول.",
-      "Message sent successfully!": "تم إرسال الرسالة بنجاح!",
-      "Failed to send message. Please try again.": "تعذر إرسال الرسالة. يرجى المحاولة مرة أخرى.",
-      "An error occurred while sending the message.": "حدث خطأ أثناء إرسال الرسالة.",
+      "Your email app will open with your message ready to send. If it doesn't, email me at sajadkenani999@gmail.com.": "سيُفتح تطبيق البريد مع تجهيز رسالتك للإرسال. إذا لم يحدث ذلك، راسلني على sajadkenani999@gmail.com.",
       "2025 - 2026": "٢٠٢٥ - ٢٠٢٦",
       "2024 - 2025": "٢٠٢٤ - ٢٠٢٥",
       "2022 - 2024": "٢٠٢٢ - ٢٠٢٤",
@@ -984,6 +943,45 @@ function openPage(url) {
   window.location.href = url;
 }
 
+function buildContactMailtoUrl(name, email, message) {
+  const subject = `Portfolio inquiry from ${name}`;
+  const body = [
+    `Name: ${name}`,
+    `Email: ${email}`,
+    "",
+    "Message:",
+    message,
+  ].join("\n");
+
+  return `mailto:sajadkenani999@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
+function bindContactForm() {
+  const form = document.getElementById("form");
+  if (!form) {
+    return;
+  }
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const name = form.elements.namedItem("name").value.trim();
+    const email = form.elements.namedItem("email").value.trim();
+    const message = form.elements.namedItem("text").value.trim();
+    const status = document.getElementById("contact-form-status");
+
+    if (status) {
+      status.textContent =
+        document.documentElement.lang === "ar"
+          ? "سيُفتح تطبيق البريد مع تجهيز رسالتك للإرسال. إذا لم يحدث ذلك، راسلني على sajadkenani999@gmail.com."
+          : "Your email app will open with your message ready to send. If it doesn't, email me at sajadkenani999@gmail.com.";
+      status.hidden = false;
+    }
+
+    window.location.href = buildContactMailtoUrl(name, email, message);
+  });
+}
+
 const goButton = document.getElementById("goButton");
 if (goButton) {
   goButton.addEventListener("click", function () {
@@ -994,6 +992,7 @@ if (goButton) {
 document.addEventListener("DOMContentLoaded", function () {
   const preferredLanguage = localStorage.getItem("preferred-language") || "en";
   applyLanguage(preferredLanguage);
+  bindContactForm();
 
   document.addEventListener("click", function (event) {
     const toggle = event.target.closest("[data-lang-toggle]");
@@ -1009,4 +1008,5 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("swup:contentReplaced", function () {
   const preferredLanguage = localStorage.getItem("preferred-language") || "en";
   applyLanguage(preferredLanguage);
+  bindContactForm();
 });

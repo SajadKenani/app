@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="css/plugins/fancybox.min.css" />
     <!-- main css -->
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/pages.css?v=3" />
     <script
       src="https://kit.fontawesome.com/436e6d7051.js"
       crossorigin="anonymous"
@@ -285,7 +286,7 @@
             <!-- top background end -->
 
             <!-- swup container -->
-            <div class="transition-fade" id="swup">
+            <div class="transition-fade art-contact-page" id="swup">
               <!-- scroll frame -->
               <div id="scrollbar" class="art-scroll-frame">
                 <div class="scroll-content">
@@ -310,7 +311,7 @@
                       <!-- col -->
                       <div class="col-12 col-xl-4">
                         <!-- contact card -->
-                        <div class="art-a art-card">
+                        <div class="art-a art-card art-contact-detail-card">
                           <div class="art-table p-15-15">
                             <ul>
                               <li>
@@ -336,16 +337,16 @@
                       <!-- col -->
                       <div class="col-12 col-xl-4">
                         <!-- contact card -->
-                        <div class="art-a art-card">
+                        <div class="art-a art-card art-contact-detail-card">
                           <div class="art-table p-15-15">
                             <ul>
                               <li>
                                 <h6>Email:</h6>
-                                <span>sajadkenani999@gmail.com</span>
+                                <span><a href="mailto:sajadkenani999@gmail.com">sajadkenani999@gmail.com</a></span>
                               </li>
                               <li>
                                 <h6>Telegram:</h6>
-                                <span>@MRGolar</span>
+                                <span><a href="https://t.me/MRGolar">@MRGolar</a></span>
                               </li>
                          
                             </ul>
@@ -357,16 +358,16 @@
                       <!-- col -->
                       <div class="col-12 col-xl-4">
                         <!-- contact card -->
-                        <div class="art-a art-card">
+                        <div class="art-a art-card art-contact-detail-card">
                           <div class="art-table p-15-15">
                             <ul>
                               <li>
                                 <h6>WhatsApp: </h6>
-                                <span>+964 774 262 0979</span>
+                                <span><a href="https://wa.me/9647742620979">+964 774 262 0979</a></span>
                               </li>
                               <li>
                                 <h6>Personal:</h6>
-                                <span>+964 774 262 0979</span>
+                                <span><a href="tel:+9647742620979">+964 774 262 0979</a></span>
                               </li>
                        
                             </ul>
@@ -391,17 +392,6 @@
 
              <!-- col -->
              <div class="col-lg-12">
-              <!-- section title -->
-              <div class="art-section-title">
-                <!-- title frame -->
-                <div class="art-title-frame">
-                  <!-- title -->
-                  <h4>Contact me </h4>
-                </div>
-                <!-- title frame end -->
-              </div>
-              <!-- section title end -->
-
               <!-- contact form frame -->
               <div class="art-a art-card">
                 <!-- contact form -->
@@ -415,6 +405,7 @@
                       class="art-input"
                       type="text"
                       placeholder="Full Name "
+                      autocomplete="name"
                       required
                     />
                     <!-- label -->
@@ -430,6 +421,7 @@
                       class="art-input"
                       type="email"
                       placeholder="Email "
+                      autocomplete="email"
                       required
                     />
                     <!-- label -->
@@ -459,11 +451,14 @@
                     >
                       <span>Submit</span>
                     </button>
-                    <!-- success -->
-                    <div class="art-success" style="display: none;">
-                      Success <i class="fas fa-check"></i>
-                    </div>
                   </div>
+                  <p
+                    id="contact-form-status"
+                    class="art-contact-form-status"
+                    role="status"
+                    aria-live="polite"
+                    hidden
+                  ></p>
                 </form>
                 <!-- contact form end -->
               <!-- contact form frame end -->
@@ -690,53 +685,6 @@
     <script src="js/plugins/fancybox.min.js"></script>
     <!-- swup js -->
     <script src="js/plugins/swup.min.js"></script>
-
-    <script>
-      document.getElementById('form').addEventListener('submit', async (e) => {
-        e.preventDefault(); // Prevent form from refreshing the page
-    
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const message = document.getElementById('message').value;
-    
-        // Validate inputs
-        if (!name || !email || !message) {
-          alert(document.documentElement.lang === 'ar'
-            ? 'يرجى ملء جميع الحقول.'
-            : 'Please fill out all fields');
-          return;
-        }
-    
-        // POST request
-        try {
-          const response = await fetch('https://golang-proxy-server-production-3252.up.railway.app/submit', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ name, email, message }),
-          });
-    
-          if (response.ok) {
-            document.querySelector('.art-success').style.display = 'block';
-            alert(document.documentElement.lang === 'ar'
-              ? 'تم إرسال الرسالة بنجاح!'
-              : 'Message sent successfully!');
-            // Reset form
-            document.getElementById('form').reset();
-          } else {
-            alert(document.documentElement.lang === 'ar'
-              ? 'تعذر إرسال الرسالة. يرجى المحاولة مرة أخرى.'
-              : 'Failed to send message. Please try again.');
-          }
-        } catch (error) {
-          console.error('Error:', error);
-          alert(document.documentElement.lang === 'ar'
-            ? 'حدث خطأ أثناء إرسال الرسالة.'
-            : 'An error occurred while sending the message.');
-        }
-      });
-    </script>
 
     <!-- main js -->
     <script src="js/main.js"></script>
