@@ -390,3 +390,25 @@ app marcup (after 230px)
     }
   }
 }
+
+html[dir="rtl"] .art-app {
+  direction: ltr;
+
+  & .art-info-bar,
+  & .art-content {
+    direction: rtl;
+  }
+
+  & .art-menu-bar {
+    direction: ltr;
+
+    & .art-menu-bar-header,
+    & nav {
+      direction: ltr;
+    }
+
+    & .main-menu {
+      direction: rtl;
+    }
+  }
+}

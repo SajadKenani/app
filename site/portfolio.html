@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
@@ -64,7 +64,7 @@
                     href="img/face-4.jpg"
                     class="art-avatar-curtain"
                   >
-                    <img src="img/face.jpg" alt="avatar" />
+                    <img src="img/face.jpg" alt="avatar" loading="lazy" decoding="async" />
                     <i class="fas fa-expand"></i>
                   </a>
                   <!-- available -->
@@ -76,10 +76,10 @@
                 <!-- avatar end -->
                 <!-- name -->
                 <h5 class="art-name mb-10">
-                  <a href="home.html">Sajad Kenani</a>
+                  <a href="index.html">Sajad Kenani</a>
                 </h5>
                 <!-- post -->
-                <div class="art-sm-text">Full Stack Developer <br />UI UX Designer</div>
+                <div class="art-sm-text" data-i18n="profile.title">Full-Stack Engineer</div>
               </div>
               <!-- info bar header end -->
 
@@ -91,27 +91,22 @@
                   <ul>
                     <!-- country -->
                     <li>
-                      <h6>Residence:</h6>
+                      <h6 data-i18n="profile.residenceLabel">Residence:</h6>
                       <span>Iraq</span>
                     </li>
                     <!-- city -->
                     <li>
-                      <h6>City:</h6>
+                      <h6 data-i18n="profile.cityLabel">City:</h6>
                       <span>Baghdad</span>
                     </li>
       
-                    <!-- age -->
-                    <li>
-                      <h6>Age:</h6>
-                      <span>21</span>
-                    </li>
                   </ul>
                 </div>
                 <!-- info bar about end -->
 
                 <!-- divider -->
                 <div class="art-ls-divider"></div>
-                <h6 style="text-align: center; margin-top: 23px">
+                <h6 style="text-align: center; margin-top: 23px" data-i18n="profile.skills">
                   My Skills
                 </h6>
                 <!-- language skills -->
@@ -128,7 +123,7 @@
                   <div class="art-lang-skills-item">
                     <div id="circleprog2" class="art-cirkle-progress"></div>
                     <!-- title -->
-                    <h6>React.js</h6>
+                    <h6>React / Next.js</h6>
                   </div>
                   <!-- skill end -->
 
@@ -136,7 +131,7 @@
                   <div class="art-lang-skills-item">
                     <div id="circleprog3" class="art-cirkle-progress"></div>
                     <!-- title -->
-                    <h6>Node.js</h6>
+                    <h6>Go / tRPC</h6>
                   </div>
                   <!-- skill -->
                   <div class="art-lang-skills-item">
@@ -148,7 +143,7 @@
                   <div class="art-lang-skills-item">
                     <div id="circleprog5" class="art-cirkle-progress"></div>
                     <!-- title -->
-                    <h6>MongoDB</h6>
+                    <h6>PostgreSQL</h6>
                   </div>
 
                   <!-- skill end -->
@@ -164,7 +159,7 @@
                   <div class="art-hard-skills-item">
                     <div class="art-skill-heading">
                       <!-- title -->
-                      <h6>html</h6>
+                      <h6>HTML5</h6>
                     </div>
                     <!-- progressbar frame -->
                     <div class="art-line-progress">
@@ -179,7 +174,7 @@
                   <div class="art-hard-skills-item">
                     <div class="art-skill-heading">
                       <!-- title -->
-                      <h6>CSS</h6>
+                      <h6>CSS3</h6>
                     </div>
                     <!-- progressbar frame -->
                     <div class="art-line-progress">
@@ -194,7 +189,7 @@
                   <div class="art-hard-skills-item">
                     <div class="art-skill-heading">
                       <!-- title -->
-                      <h6>Javascript</h6>
+                      <h6>TypeScript</h6>
                     </div>
                     <!-- progressbar frame -->
                     <div class="art-line-progress">
@@ -209,7 +204,7 @@
                   <div class="art-hard-skills-item">
                     <div class="art-skill-heading">
                       <!-- title -->
-                      <h6>Tailwind</h6>
+                      <h6>JavaScript</h6>
                     </div>
                     <!-- progressbar frame -->
                     <div class="art-line-progress">
@@ -232,13 +227,16 @@
                 <ul class="art-knowledge-list p-15-0">
 
                   <!-- list item -->
-                  <li>CSS, Tailwind</li>
+                  <li>HTML5, CSS3, responsive design</li>
                   <!-- list item -->
-                  <li>React.js, React Native</li>
+                  <li>React Native, Expo</li>
                   <!-- list item -->
-                  <li>Node.js, MongoDB</li>
+                  <li>REST APIs, Prisma ORM, PostgreSQL</li>
                   <!-- list item -->
-                  <li>Github</li>
+                  <li>Git, GitHub, Railway, Vercel</li>
+                  <li>API integration, debugging, problem-solving</li>
+                  <li>Cross-platform mobile and end-to-end feature development</li>
+                  <li>AI-assisted development tools</li>
                   <!-- list item -->
                   <li><a href="https://github.com/SajadKenani">More...</a></li>
                 </ul>
@@ -249,7 +247,7 @@
                 <!-- links frame -->
                 <div class="art-links-frame p-15-15">
                   <!-- download cv button -->
-                  <a href="img/works/thumbnail/PiyushPUNIYA_Resume.pdf" class="art-link" download data-no-swup
+                  <a href="img/works/thumbnail/Sajad_Resume.pdf" class="art-link" download data-no-swup
                     >Download cv <i class="fas fa-download"></i
                   ></a>
                 </div>
@@ -262,17 +260,17 @@
                 <!-- social link -->
                 <a
                   class="redi"
-                  href=""
+                  href="img/works/thumbnail/2.jpg"
                   onclick="openpage('https://www.linkedin.com/in/sajad-kenani-518a8322a/')"
                   target="_blank"
                   ><i class="fab fa-linkedin-in"></i
                 ></a>
                 <!-- social link -->
-                <a   onclick="openpage('https://www.instagram.com/_oldboy0/')"href="#." target="_blank"
+                <a data-no-swup onclick="openpage('https://www.instagram.com/_oldboy0/')"href="#." target="_blank"
                   ><i class="fab fa-instagram"></i
                 ></a>
                 <!-- social link -->
-                <a href="#." target="_blank"><i class="fab fa-behance"></i></a>
+                <a href="#." data-no-swup target="_blank"><i class="fab fa-behance"></i></a>
                 <!-- social link -->
                 <a
                   class="redi"
@@ -282,7 +280,7 @@
                   ><i class="fab fa-github"></i
                 ></a>
                 <!-- social link -->
-                <a href="#." target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="#." data-no-swup target="_blank"><i class="fab fa-twitter"></i></a>
               </div>
               <!-- sidebar social end -->
             </div>
@@ -351,7 +349,63 @@
                         class="art-grid art-grid-3-col art-gallery"
                         style="position: relative; height: 1787.8px"
                       >
-                          
+                        <div class="art-grid-item m">
+                          <div
+                            class="art-a art-portfolio-item-frame art-square art-project-placeholder"
+                            role="img"
+                            aria-label="Newyolk mobile app screenshot placeholder"
+                          >
+                            <span class="art-project-placeholder-content">
+                              <i class="fas fa-mobile-alt" aria-hidden="true"></i>
+                              <span>Screenshot coming soon</span>
+                            </span>
+                          </div>
+                          <div class="art-item-description">
+                            <h5 class="mb-15">Newyolk Mobile App</h5>
+                            <div class="mb-15">
+                              Cross-platform mobile app built with React Native and connected to backend services and APIs.
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="art-grid-item w">
+                          <div
+                            class="art-a art-portfolio-item-frame art-square art-project-placeholder"
+                            role="img"
+                            aria-label="Newyolk ERP screenshot placeholder"
+                          >
+                            <span class="art-project-placeholder-content">
+                              <i class="fas fa-laptop" aria-hidden="true"></i>
+                              <span>Screenshot coming soon</span>
+                            </span>
+                          </div>
+                          <div class="art-item-description">
+                            <h5 class="mb-15">Newyolk ERP</h5>
+                            <div class="mb-15">
+                              ERP features for lecture management, attendance tracking, subscriptions, and multi-institute support.
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="art-grid-item m w">
+                          <div
+                            class="art-a art-portfolio-item-frame art-square art-project-placeholder"
+                            role="img"
+                            aria-label="Kawon educational platform screenshot placeholder"
+                          >
+                            <span class="art-project-placeholder-content">
+                              <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+                              <span>Screenshot coming soon</span>
+                            </span>
+                          </div>
+                          <div class="art-item-description">
+                            <h5 class="mb-15">Kawon</h5>
+                            <div class="mb-15">
+                              Educational platform for lecture videos, assignments, and attendance tracking.
+                            </div>
+                          </div>
+                        </div>
+
                         <!-- grid item -->
                         <div
                           class="art-grid-item m u"
@@ -361,11 +415,11 @@
                           <a
                             data-fancybox="gallery"
                             data-no-swup=""
-                            href=""
+                            href="img/works/thumbnail/2.jpg"
                             class="art-a art-portfolio-item-frame art-square"
                           >
                             <!-- img -->
-                            <img src="img/works/thumbnail/2.png" alt="item" />
+                            <img src="img/works/thumbnail/2.jpg" alt="Global Clean mobile app design" loading="lazy" decoding="async" />
                             <!-- zoom icon -->
                             <span class="art-item-hover"
                               ><i class="fas fa-expand"></i
@@ -399,13 +453,13 @@
                           <a
                             data-fancybox="gallery"
                             data-no-swup=""
-                            href="https://piyushdev.xyz/img/works/thumbnail/P11.jpg"
+                            href="img/works/thumbnail/1.jpg"
                             class="
                               art-a art-portfolio-item-frame art-horizontal
                             "
                           >
                             <!-- img -->
-                            <img src="img/works/thumbnail/1.png" alt="item" />
+                            <img src="img/works/thumbnail/1.jpg" alt="Basamly mobile app" loading="lazy" decoding="async" />
                             <!-- zoom icon -->
                             <span class="art-item-hover"
                               ><i class="fas fa-expand"></i
@@ -422,12 +476,12 @@
                           
                             </div>
                             <!-- button -->
-                            <a
+                            <!-- <a
                               href=""
                               onclick="openpage('https://sajadkenani.github.io/Basamly/')"
                               class="redi art-link art-color-link art-w-chevron"
                               >Visit website</a
-                            >
+                            > -->
                           </div>
                           <!-- description end -->
                         </div>
@@ -443,11 +497,11 @@
                           <a
                             data-fancybox="gallery"
                             data-no-swup=""
-                            href="img/works/thumbnail/P3.jpg"
+                            href="img/works/thumbnail/11.jpg"
                             class="art-a art-portfolio-item-frame art-square"
                           >
                             <!-- img -->
-                            <img src="img/works/thumbnail/11.png" alt="item" />
+                            <img src="img/works/thumbnail/11.jpg" alt="White Tiger Drink website" loading="lazy" decoding="async" />
                             <!-- zoom icon -->
                             <span class="art-item-hover"
                               ><i class="fas fa-expand"></i
@@ -462,12 +516,12 @@
                               I developed this website using React.js with Tailwind.
                             </div>
                             <!-- button -->
-                            <a
+                            <!-- <a
                               href=""
                               onclick="openpage('https://whitetigerdrink.com/')"
                               class="redi art-link art-color-link art-w-chevron"
                               >Live</a
-                            >
+                            > -->
                           </div>
                           <!-- description end -->
                         </div>
@@ -482,11 +536,11 @@
                           <a
                             data-fancybox="gallery"
                             data-no-swup=""
-                            href="img/works/thumbnail/P5.jpg"
+                            href="img/works/thumbnail/12.jpg"
                             class="art-a art-portfolio-item-frame art-square"
                           >
                             <!-- img -->
-                            <img src="img/works/thumbnail/12.png" alt="item" />
+                            <img src="img/works/thumbnail/12.jpg" alt="Baghdad Beacon website" loading="lazy" decoding="async" />
                             <!-- zoom icon -->
                             <span class="art-item-hover"
                               ><i class="fas fa-expand"></i
@@ -503,12 +557,12 @@
                               You can order a housemaid through the website! 
                             </div>
                             <!-- button -->
-                            <a
+                            <!-- <a
                               href=""
                               onclick="openpage('https://baghdad-beacon.iq/')"
                               class="redi art-link art-color-link art-w-chevron"
                               >Live</a
-                            >
+                            > -->
                           </div>
                           <!-- description end -->
                         </div>
@@ -523,11 +577,11 @@
                           <a
                             data-fancybox="gallery"
                             data-no-swup=""
-                            href="img/works/thumbnail/P6.png"
+                            href="img/works/thumbnail/6.jpg"
                             class="art-a art-portfolio-item-frame art-vertical"
                           >
                             <!-- img -->
-                            <img src="img/works/thumbnail/6.png" alt="item" />
+                            <img src="img/works/thumbnail/6.jpg" alt="Baghdad Star website" loading="lazy" decoding="async" />
                             <!-- zoom icon -->
                             <span class="art-item-hover"
                               ><i class="fas fa-expand"></i
@@ -542,12 +596,12 @@
                               I developed this web application using React.js and tailwind along with Github APIs.
                             </div>
                             <!-- button -->
-                            <a
+                            <!-- <a
                               href=""
                               onclick="openpage('https://baghdadstar.online/')"
                               class="redi art-link art-color-link art-w-chevron"
                               >Live Demo</a
-                            >
+                            > -->
                           </div>
                           <!-- description end -->
                         </div>
@@ -566,11 +620,11 @@
                           <a
                             data-fancybox="gallery"
                             data-no-swup=""
-                            href="img/works/thumbnail/10.png"
+                            href="img/works/thumbnail/10.jpg"
                             class="art-a art-portfolio-item-frame art-square"
                           >
                             <!-- img -->
-                            <img src="img/works/thumbnail/10.png" alt="item" />
+                            <img src="img/works/thumbnail/10.jpg" alt="Previous portfolio website" loading="lazy" decoding="async" />
                             <!-- zoom icon -->
                             <span class="art-item-hover"
                               ><i class="fas fa-expand"></i
@@ -585,12 +639,12 @@
                               A portfolio website I made using React.js and Tailwind
                             </div>
                             <!-- button -->
-                            <a
+                            <!-- <a
                               href=""
                               onclick="openpage('https://sajadkenani.github.io/portfolio/')"
                               class="redi art-link art-color-link art-w-chevron"
                               >Live Demo</a
-                            >
+                            > -->
                           </div>
                           <!-- description end -->
                         </div>
@@ -609,13 +663,13 @@
                           <a
                             data-fancybox="gallery"
                             data-no-swup=""
-                            href="img/works/thumbnail/9.png"
+                            href="img/works/thumbnail/9.jpg"
                             class="
                               art-a art-portfolio-item-frame art-horizontal
                             "
                           >
                             <!-- img -->
-                            <img src="img/works/thumbnail/9.png" alt="item" />
+                            <img src="img/works/thumbnail/9.jpg" alt="Yaman Al-Khair website" loading="lazy" decoding="async" />
                             <!-- zoom icon -->
                             <span class="art-item-hover"
                               ><i class="fas fa-expand"></i
@@ -631,12 +685,12 @@
                               
                             </div>
                             <!-- button -->
-                            <a
+                            <!-- <a
                               href=""
                               onclick="openpage('https://yamanalkhair.com/')"
                               class="redi art-link art-color-link art-w-chevron"
                               >Live</a
-                            >
+                            > -->
                           </div>
                           <!-- description end -->
                         </div>
@@ -660,7 +714,7 @@
                     <!-- footer -->
                     <footer>
                       <!-- copyright -->
-                      <div class="art-copy">© 2024 Sajad Kenani</div>
+                      <div class="art-copy">© 2026 Sajad Kenani</div>
                       <!-- author ( Please! Do not delete it. You are awesome! :) -->
                      
                     </footer>
@@ -722,8 +776,8 @@
                   <!-- menu list -->
                   <ul class="main-menu">
                     <!-- menu item -->
-                    <li class="menu-item current-menu-item">
-                      <a href="index.html">Home</a>
+                    <li class="menu-item">
+                      <a href="index.html" data-i18n="nav.home">Home</a>
                     </li>
                     <!-- menu item -->
                     <li class="menu-item menu-item-has-children">
@@ -753,20 +807,19 @@
                     </li>
                     <!-- menu item -->
                     <li class="menu-item">
-                      <a href="history.html">History</a>
+                      <a href="history.html" data-i18n="nav.history">History</a>
                     </li>
                     <!-- menu item -->
                     <li class="menu-item">
-                      <a href="contact.html">Contact</a>
+                      <a href="contact.html" data-i18n="nav.contact">Contact</a>
                     </li>
            
                     <!-- menu item -->
-                    <li class="menu-item">
+                    <li class="menu-item current-menu-item">
                       <a
-                        href="portfolio-3-col-masonry.html"
-                        target="_blank"
-                        data-no-swup
-                        >Explore</a
+                        href="portfolio.html"
+                        data-i18n="nav.portfolio"
+                        >Portfolio</a
                       >
                     </li>
                   </ul>
@@ -777,10 +830,10 @@
                 <!-- language change -->
                 <ul class="art-language-change">
                   <!-- language item -->
-                  <li><a href="#." onclick="openPage('https://sajadkenani.github.io/app/ar/portfolio'); return false;">AR</a></li>
+                  <li data-lang-toggle="ar"><a href="#." data-no-swup aria-label="Switch to Arabic">AR</a></li>
 
                   <!-- language item -->
-                  <li class="art-active-lang"><a href="#.">EN</a></li>
+                  <li data-lang-toggle="en" class="art-active-lang"><a href="#." data-no-swup aria-label="Switch to English">EN</a></li>
                 </ul>
                 <!-- language change end -->
               </div>

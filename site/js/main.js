@@ -14,7 +14,7 @@ $(function () {
   const options = {
     containers: ["#swup", "#swupMenu"],
     animateHistoryBrowsing: true,
-    linkSelector: "a:not([data-no-swup])",
+    linkSelector: 'a:not([data-no-swup]):not([href^="#"]):not([href=""])',
   };
   const swup = new Swup(options);
 
@@ -715,17 +715,298 @@ $(function () {
   });
 });
 
-function openpage(link) {
-  console.log("clicked")
-
-  window.open(link , '_blank');
+const translations = {
+  en: {
+    nav: {
+      home: "Home",
+      history: "History",
+      contact: "Contact",
+      portfolio: "Portfolio",
+    },
+    profile: {
+      title: "Full-Stack Engineer",
+      residenceLabel: "Residence:",
+      cityLabel: "City:",
+      skills: "My Skills",
+    },
+    typing: [
+      "build full-stack web and mobile applications.",
+      "work with React, React Native, Go, and PostgreSQL.",
+      "develop APIs and end-to-end features.",
+      "am a Full-Stack Engineer!",
+    ],
+  },
+  ar: {
+    nav: {
+      home: "الرئيسية",
+      history: "السيرة المهنية",
+      contact: "تواصل معي",
+      portfolio: "معرض الأعمال",
+    },
+    profile: {
+      title: "مهندس برمجيات متكامل",
+      residenceLabel: "الإقامة:",
+      cityLabel: "المدينة:",
+      skills: "مهاراتي",
+    },
+    typing: [
+      "أطور تطبيقات الويب والهواتف المتكاملة.",
+      "أعمل باستخدام React وReact Native وGo وPostgreSQL.",
+      "أطور واجهات API وميزات متكاملة.",
+      "أنا مهندس برمجيات متكامل!",
+    ],
+    copy: {
+      "Home": "الرئيسية",
+      "History": "السيرة المهنية",
+      "Contact": "تواصل معي",
+      "Portfolio": "معرض الأعمال",
+      "Accounts": "حساباتي",
+      "Linked In": "لينكدإن",
+      "Residence:": "الإقامة:",
+      "Iraq": "العراق",
+      "City:": "المدينة:",
+      "Baghdad": "بغداد",
+      "Baghdad, Iraq": "بغداد، العراق",
+      "Website:": "الموقع الإلكتروني:",
+      "My Skills": "مهاراتي",
+      "More...": "المزيد...",
+      "Download cv": "تنزيل السيرة الذاتية",
+      "Take Tour Of My": "اكتشف",
+      "Web Journey!": "رحلتي في تطوير الويب!",
+      "code": "برمجة",
+      "I": "أنا",
+      "Explore now": "اكتشف الآن",
+      "Years Experience": "سنوات من الخبرة",
+      "Completed Projects": "مشروع مكتمل",
+      "Happy Customers": "عميل سعيد",
+      "Click to go to the last completed project": "اضغط للانتقال إلى أحدث مشروع مكتمل",
+      "My Field Of Work": "مجالات عملي",
+      "UI UX": "واجهات وتجربة المستخدم",
+      "Website Development": "تطوير المواقع",
+      "Front - End Development": "تطوير الواجهات الأمامية",
+      "I build responsive web interfaces with JavaScript, TypeScript, React, Next.js, HTML5, and CSS3.": "أطور واجهات ويب متجاوبة باستخدام JavaScript وTypeScript وReact وNext.js وHTML5 وCSS3.",
+      "Order": "اطلب الخدمة",
+      "Back - End Development": "تطوير الواجهات الخلفية",
+      "I build backend services and APIs with Go, tRPC, and Prisma ORM, using PostgreSQL and thoughtful database design.": "أطور خدمات خلفية وواجهات API باستخدام Go وtRPC وPrisma ORM، مع PostgreSQL وتصميم قواعد بيانات مدروس.",
+      "Full - Stack Development": "تطوير متكامل",
+      "I deliver end-to-end features across frontend and backend systems, from responsive interfaces and API integration to database design, using React, TypeScript, Go, tRPC, Prisma ORM, and PostgreSQL.": "أقدم ميزات متكاملة عبر الواجهات الأمامية والخلفية، من الواجهات المتجاوبة وتكامل API إلى تصميم قواعد البيانات، باستخدام React وTypeScript وGo وtRPC وPrisma ORM وPostgreSQL.",
+      "Mobile Application Development": "تطوير تطبيقات الهاتف",
+      "I develop cross-platform mobile applications with React Native and Expo, connecting user-friendly interfaces to backend APIs.": "أطور تطبيقات هاتف متعددة المنصات باستخدام React Native وExpo، مع ربط الواجهات سهلة الاستخدام بواجهات API الخلفية.",
+      "UI UX Design": "تصميم واجهات وتجربة المستخدم",
+      "I am skilled in UI/UX design, utilizing Figma and Photoshop to create intuitive, visually appealing interfaces. My design process focuses on enhancing user experience through thoughtful layout, color schemes, and interactive elements, ensuring that the final product is both aesthetically pleasing and highly functional.": "أمتلك مهارة في تصميم واجهات وتجربة المستخدم، وأستخدم Figma وPhotoshop لإنشاء واجهات واضحة وجذابة. أركز في التصميم على تحسين تجربة المستخدم من خلال التخطيط المدروس والألوان والعناصر التفاعلية، لتحقيق مظهر جميل ووظائف عملية.",
+      "My Services": "خدماتي",
+      "Most Liked": "الأكثر طلبًا",
+      "Order the service": "اطلب هذه الخدمة",
+      "Education": "التعليم",
+      "Medical Technology Engineering": "هندسة التكنولوجيا الطبية",
+      "Work History": "الخبرة المهنية",
+      "Full-Stack Engineer": "مهندس برمجيات متكامل",
+      "Frontend Developer": "مطور واجهات أمامية",
+      "Developed web and mobile applications with React and React Native, and built backend services and APIs with Go and PostgreSQL. Delivered educational features for lecture videos, attendance, subscriptions, and multi-institute support.": "طورت تطبيقات ويب وهاتف باستخدام React وReact Native، وخدمات خلفية وواجهات API باستخدام Go وPostgreSQL. ونفذت ميزات تعليمية لإدارة المحاضرات والحضور والاشتراكات ودعم مؤسسات متعددة.",
+      "Developed frontend features for a recruitment platform connecting employers with job seekers, including job postings, applications, and real-time communication.": "طورت ميزات الواجهة الأمامية لمنصة توظيف تربط أصحاب العمل بالباحثين عن عمل، بما يشمل نشر الوظائف والتقديم والتواصل الفوري.",
+      "Designed and built an ERP system, developed a React Native mobile app, and contributed to CRM features using React, TypeScript, tRPC, Prisma, and PostgreSQL.": "صممت وطورت نظام ERP وتطبيق هاتف باستخدام React Native، وساهمت في ميزات CRM باستخدام React وTypeScript وtRPC وPrisma وPostgreSQL.",
+      "Newyolk | Baghdad, Iraq": "Newyolk | بغداد، العراق",
+      "INBOX | Remote": "INBOX | عن بُعد",
+      "Contact information": "معلومات التواصل",
+      "Country:": "الدولة:",
+      "Email:": "البريد الإلكتروني:",
+      "React / Next.js": "React وNext.js",
+      "Go / tRPC": "Go وtRPC",
+      "HTML5, CSS3, responsive design": "HTML5 وCSS3 وتصميم متجاوب",
+      "React Native, Expo": "React Native وExpo",
+      "REST APIs, Prisma ORM, PostgreSQL": "واجهات REST وPrisma ORM وPostgreSQL",
+      "Git, GitHub, Railway, Vercel": "Git وGitHub وRailway وVercel",
+      "API integration, debugging, problem-solving": "تكامل API وتصحيح الأخطاء وحل المشكلات",
+      "Cross-platform mobile and end-to-end feature development": "تطوير تطبيقات متعددة المنصات وميزات متكاملة",
+      "AI-assisted development tools": "أدوات التطوير بمساعدة الذكاء الاصطناعي",
+      "Telegram:": "تيليجرام:",
+      "WhatsApp:": "واتساب:",
+      "Personal:": "الهاتف الشخصي:",
+      "Get in touch": "ابقَ على تواصل",
+      "Contact me": "تواصل معي",
+      "Submit": "إرسال",
+      "Success": "تم الإرسال بنجاح",
+      "All Categories": "جميع الفئات",
+      "Websites": "مواقع الويب",
+      "Mobile Applications": "تطبيقات الهاتف",
+      "Newyolk Mobile App": "تطبيق Newyolk للهاتف",
+      "Newyolk ERP": "نظام Newyolk لتخطيط الموارد",
+      "Kawon": "كون",
+      "Screenshot coming soon": "لقطة الشاشة قريبًا",
+      "Cross-platform mobile app built with React Native and connected to backend services and APIs.": "تطبيق هاتف متعدد المنصات طُوّر باستخدام React Native ويرتبط بخدمات خلفية وواجهات API.",
+      "ERP features for lecture management, attendance tracking, subscriptions, and multi-institute support.": "ميزات لنظام ERP لإدارة المحاضرات ومتابعة الحضور والاشتراكات ودعم مؤسسات متعددة.",
+      "Educational platform for lecture videos, assignments, and attendance tracking.": "منصة تعليمية لمقاطع المحاضرات والواجبات ومتابعة الحضور.",
+      "Global Clean Design": "تصميم جلوبال كلين",
+      "I designed this mobile application using Figma": "صممت تطبيق الهاتف هذا باستخدام Figma.",
+      "Basamly": "بسملّي",
+      "I used React Native along with Node.js and mongoDB to develop the application. You can download the app for Androids through the website.": "استخدمت React Native مع Node.js وMongoDB لتطوير التطبيق. يمكنك تنزيل التطبيق لأجهزة Android من خلال الموقع.",
+      "Visit website": "زيارة الموقع",
+      "White Tiger Drink": "مشروب وايت تايغر",
+      "I developed this website using React.js with Tailwind.": "طورت هذا الموقع باستخدام React.js وTailwind.",
+      "Live": "عرض مباشر",
+      "Baghdad Beacon Website": "موقع بغداد بيكون",
+      "I designed and developed this website using HTML, CSS and JavaScript along with Node.js and MongoDB. You can order a housemaid through the website!": "صممت وطورت هذا الموقع باستخدام HTML وCSS وJavaScript وNode.js وMongoDB. يمكنك طلب عاملة منزلية من خلال الموقع.",
+      "Baghdad Star Website": "موقع بغداد ستار",
+      "I developed this web application using React.js and tailwind along with Github APIs.": "طورت تطبيق الويب هذا باستخدام React.js وTailwind وواجهات GitHub API.",
+      "Live Demo": "عرض تجريبي مباشر",
+      "My Old Portfolio": "معرض أعمالي السابق",
+      "A portfolio website I made using React.js and Tailwind": "موقع لمعرض أعمالي أنشأته باستخدام React.js وTailwind.",
+      "Yaman Al-Khair Website": "موقع يمان الخير",
+      "Discover a website I recently designed and programmed.": "اكتشف موقعًا صممته وبرمجته مؤخرًا.",
+      "Full Name": "الاسم الكامل",
+      "Email": "البريد الإلكتروني",
+      "Message": "الرسالة",
+      "Please fill out all fields": "يرجى ملء جميع الحقول.",
+      "Message sent successfully!": "تم إرسال الرسالة بنجاح!",
+      "Failed to send message. Please try again.": "تعذر إرسال الرسالة. يرجى المحاولة مرة أخرى.",
+      "An error occurred while sending the message.": "حدث خطأ أثناء إرسال الرسالة.",
+      "2025 - 2026": "٢٠٢٥ - ٢٠٢٦",
+      "2024 - 2025": "٢٠٢٤ - ٢٠٢٥",
+      "2022 - 2024": "٢٠٢٢ - ٢٠٢٤",
+    },
+  },
 };
+
+const originalTextNodes = new WeakMap();
+
+function translateCopyText(lang) {
+  const treeWalker = document.createTreeWalker(
+    document.body,
+    NodeFilter.SHOW_TEXT,
+    {
+      acceptNode: function (node) {
+        return node.parentElement &&
+          node.parentElement.closest("script, style, [data-i18n], [data-rotate]")
+          ? NodeFilter.FILTER_REJECT
+          : NodeFilter.FILTER_ACCEPT;
+      },
+    }
+  );
+  const copy = translations.ar.copy;
+  let node;
+
+  while ((node = treeWalker.nextNode())) {
+    if (!originalTextNodes.has(node)) {
+      originalTextNodes.set(node, node.textContent);
+    }
+
+    const originalText = originalTextNodes.get(node);
+    const normalizedText = originalText.replace(/\s+/g, " ").trim();
+    const translatedText = lang === "ar" ? copy[normalizedText] : normalizedText;
+
+    if (translatedText !== undefined) {
+      const leadingWhitespace = originalText.match(/^\s*/)[0];
+      const trailingWhitespace = originalText.match(/\s*$/)[0];
+      node.textContent = leadingWhitespace + translatedText + trailingWhitespace;
+    } else {
+      node.textContent = originalText;
+    }
+  }
+
+  document.querySelectorAll("[placeholder]").forEach(function (element) {
+    if (!element.dataset.originalPlaceholder) {
+      element.dataset.originalPlaceholder = element.getAttribute("placeholder");
+    }
+
+    const originalPlaceholder = element.dataset.originalPlaceholder;
+    const normalizedPlaceholder = originalPlaceholder.replace(/\s+/g, " ").trim();
+    element.setAttribute(
+      "placeholder",
+      lang === "ar" ? copy[normalizedPlaceholder] || originalPlaceholder : originalPlaceholder
+    );
+  });
+}
+
+function applyLanguage(lang) {
+  const selectedLang = lang === "ar" ? "ar" : "en";
+  localStorage.setItem("preferred-language", selectedLang);
+
+  document.documentElement.lang = selectedLang;
+  document.documentElement.dir = selectedLang === "ar" ? "rtl" : "ltr";
+  document.body.setAttribute("dir", selectedLang === "ar" ? "rtl" : "ltr");
+  translateCopyText(selectedLang);
+
+  document.querySelectorAll("[data-i18n]").forEach(function (element) {
+    const keys = element.dataset.i18n.split(".");
+    let value = translations[selectedLang];
+
+    for (const key of keys) {
+      if (!value || !(key in value)) {
+        value = "";
+        break;
+      }
+      value = value[key];
+    }
+
+    if (typeof value === "string") {
+      element.innerHTML = value;
+    }
+  });
+
+  document.querySelectorAll("[data-lang-toggle]").forEach(function (button) {
+    const isActive = button.dataset.langToggle === selectedLang;
+    button.classList.toggle("art-active-lang", isActive);
+    button.setAttribute("aria-pressed", String(isActive));
+    const link = button.querySelector("a");
+    if (link) {
+      link.setAttribute(
+        "aria-label",
+        selectedLang === "ar"
+          ? button.dataset.langToggle === "ar"
+            ? "التبديل إلى العربية"
+            : "التبديل إلى الإنجليزية"
+          : button.dataset.langToggle === "ar"
+            ? "Switch to Arabic"
+            : "Switch to English"
+      );
+    }
+  });
+
+  document.querySelectorAll("[data-rotate]").forEach(function (element) {
+    element.setAttribute(
+      "data-rotate",
+      JSON.stringify(translations[selectedLang].typing)
+    );
+
+    if (document.readyState === "complete") {
+      const replacement = element.cloneNode(false);
+      replacement.textContent = translations[selectedLang].typing[0];
+      element.replaceWith(replacement);
+    }
+  });
+}
+
+function openpage(link) {
+  window.open(link, "_blank");
+}
 
 function openPage(url) {
   window.location.href = url;
 }
 
+const goButton = document.getElementById("goButton");
+if (goButton) {
+  goButton.addEventListener("click", function () {
+    window.location.href = "https://meemapps.github.io/meem";
+  });
+}
 
-document.getElementById("goButton").addEventListener("click", () => {
-  window.location.href = ("https://meemapps.github.io/meem")
-})
+document.addEventListener("DOMContentLoaded", function () {
+  const preferredLanguage = localStorage.getItem("preferred-language") || "en";
+  applyLanguage(preferredLanguage);
+
+  document.addEventListener("click", function (event) {
+    const toggle = event.target.closest("[data-lang-toggle]");
+    if (!toggle) {
+      return;
+    }
+
+    event.preventDefault();
+    applyLanguage(toggle.dataset.langToggle);
+  });
+});
+
+document.addEventListener("swup:contentReplaced", function () {
+  const preferredLanguage = localStorage.getItem("preferred-language") || "en";
+  applyLanguage(preferredLanguage);
+});
